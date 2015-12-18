@@ -11,12 +11,29 @@ public class Sort {
     public static void main(String[] args) {
         int s[] = {6, 5, 3, 1, 8, 7, 2, 4};
         Util.printintArr(s);
-        quickSort(s, 0, s.length - 1);
+//        quickSort(s, 0, s.length - 1);
+        bubbleSort(s);
         Util.printintArr(s);
     }
 
     //冒泡排序
-    public static void BubbleSort(int data[]) {
+    public static void bubbleSort(int data[]) {
+        int len = data.length;
+        int temp;
+        for (int i = len - 1; i > 0; i--) {
+            boolean flag = false;//记录是否发生交换
+            for (int j = 0; j < i; j++) {
+                if (data[j] > data[j + 1]) {
+                    temp = data[j];
+                    data[j] = data[j + 1];
+                    data[j + 1] = temp;
+                    flag = true;
+                }
+            }
+            // 冒泡排序算法结束条件：在一趟排序过程中没有进行过交换操作
+            if (!flag)
+                break;
+        }
 
     }
 
