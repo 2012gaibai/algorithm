@@ -11,8 +11,8 @@ public class Sort {
     public static void main(String[] args) {
         int s[] = {6, 5, 3, 1, 8, 7, 2, 4};
         Util.printintArr(s);
-//        quickSort(s, 0, s.length - 1);
-        bubbleSort(s);
+        quickSort(s, 0, s.length - 1);
+//        bubbleSort(s);
         Util.printintArr(s);
     }
 
