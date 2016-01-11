@@ -5,10 +5,10 @@ package com.code.utils;
  * Created by gan on 2015/12/17.
  */
 public class Util {
-    //打印int数组
-    public static void printintArr(int[] data) {
+    //打印数组
+    public static <T> void printintArr(T[] data) {
         StringBuilder sb = new StringBuilder();
-        for (int item : data) {
+        for (T item : data) {
             sb.append(item).append(",");
         }
         if (sb.length() > 0) {
@@ -16,4 +16,5 @@ public class Util {
         }
         System.out.println(sb.toString());
     }
+
 }

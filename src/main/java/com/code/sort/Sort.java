@@ -9,7 +9,7 @@ import com.code.utils.Util;
 public class Sort {
 
     public static void main(String[] args) {
-        int s[] = {6, 5, 3, 1, 8, 7, 2, 4};
+        Integer s[] = {6, 5, 3, 1, 8, 7, 2, 4};
         Util.printintArr(s);
         quickSort(s, 0, s.length - 1);
 //        bubbleSort(s);
@@ -17,7 +17,7 @@ public class Sort {
     }
 
     //冒泡排序
-    public static void bubbleSort(int data[]) {
+    public static void bubbleSort(Integer data[]) {
         int len = data.length;
         int temp;
         for (int i = len - 1; i > 0; i--) {
@@ -38,7 +38,7 @@ public class Sort {
     }
 
     //快速排序：分治法+挖坑填数
-    public static void quickSort(int s[], int left, int right) {
+    public static void quickSort(Integer s[], int left, int right) {
         if (left < right) {//递归结束的条件，left==right
             int i = left, j = right;//定义左右两个指针
             int key = s[i];//挖第一个坑
