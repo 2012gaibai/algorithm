@@ -2,6 +2,11 @@ package com.code.sort;
 
 import com.code.utils.Util;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * 排序算法
  * Created by gan on 2015/12/17.
@@ -14,6 +19,14 @@ public class Sort {
         quickSort(s, 0, s.length - 1);
 //        bubbleSort(s);
         Util.printintArr(s);
+        List<Menu> menus=new ArrayList<>();
+
+        menus.add(new Menu("01","haha1"));
+        menus.add(new Menu("02","haha2"));
+        menus.add(new Menu("04","haha4"));
+        menus.add(new Menu("0101","hah5"));
+        zhiDing(menus);
+        System.out.println(menus);
     }
 
     //冒泡排序
@@ -56,5 +69,57 @@ public class Sort {
             quickSort(s, left, i - 1);
             quickSort(s, i + 1, right);
         }
+    }
+
+    static class Menu {
+        private String menuCode;
+        private String name;
+
+        public Menu() {
+        }
+
+        public Menu(String menuCode, String name) {
+            this.menuCode = menuCode;
+            this.name = name;
+        }
+
+        public String getMenuCode() {
+            return menuCode;
+        }
+
+        public void setMenuCode(String menuCode) {
+            this.menuCode = menuCode;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
+
+    private static List<String> keyList = new ArrayList<>();
+
+    static {
+        keyList.add("04");
+        keyList.add("02");
+        keyList.add("01");
+        keyList.add("0101");
+        keyList.add("0203");
+
+    }
+
+    public static void zhiDing(List<Menu> menus) {
+        Map<String, Menu> map = new LinkedHashMap<>();
+        for (String key : keyList) {
+            map.put(key, null);
+        }
+        for (Menu menu : menus) {
+            map.put(menu.getMenuCode(), menu);
+        }
+        menus.clear();
+        menus.addAll(map.values());
     }
 }
