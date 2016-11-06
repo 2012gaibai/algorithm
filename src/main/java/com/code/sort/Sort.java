@@ -13,16 +13,8 @@ import java.util.Map;
  */
 public class Sort {
 
-    public static void main(String[] args) {
-        Integer s[] = {6, 5, 3, 1, 8, 7, 2, 4};
-        Util.printintArr(s);
-        quickSort(s, 0, s.length - 1);
-//        bubbleSort(s);
-        Util.printintArr(s);
-    }
-
     //冒泡排序
-    public static void bubbleSort(Integer data[]) {
+    public void bubbleSort(Integer data[]) {
         int len = data.length;
         int temp;
         for (int i = len - 1; i > 0; i--) {
@@ -43,7 +35,7 @@ public class Sort {
     }
 
     //快速排序：分治法+挖坑填数
-    public static void quickSort(Integer s[], int left, int right) {
+    public void quickSort(Integer s[], int left, int right) {
         if (left < right) {//递归结束的条件，left==right
             int i = left, j = right;//定义左右两个指针
             int key = s[i];//挖第一个坑
@@ -61,6 +53,35 @@ public class Sort {
             quickSort(s, left, i - 1);
             quickSort(s, i + 1, right);
         }
+    }
+
+
+    /**
+     * 选择排序
+     *基本思想：在要排序的一组数中，选出最小（或最大）的一个数与第一个位置的数交换
+     *
+     * @param s
+     * @param len
+     */
+    public void selectSort(Integer s[], int len) {
+        for (int i = 0; i < len; i++) {
+            int index = i;
+            index = selectMinKey(s, i, len);
+            if (index != i) {
+                int temp = s[index];
+                s[index] = s[i];
+                s[i] = temp;
+            }
+        }
+    }
+
+    private int selectMinKey(Integer s[], int left, int len) {
+        int index = left;
+        for (int i = left + 1; i < len; i++) {
+            if (s[index] > s[i])
+                index = i;
+        }
+        return index;
     }
 
 }
