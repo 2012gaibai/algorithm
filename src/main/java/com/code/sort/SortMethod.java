@@ -10,7 +10,8 @@ public class SortMethod {
     public static void main(String[] args) {
         int[] a = {3, 7, 4, 2, 2, 3, 1};
 //        bubbleSort(a);
-        quickSort(a, 0, a.length - 1);
+//        quickSort(a, 0, a.length - 1);
+        insertSort(a);
         Util.printIntArr(a);
     }
 
@@ -71,5 +72,30 @@ public class SortMethod {
         data[left] = key;
         return left;
 
+    }
+
+    /***
+     * 直接插入排序
+     */
+
+    public static void insertSort(int[] data) {
+        int len = data.length;
+        int temp;
+        int j;
+        for (int i = 1; i < len; i++) {
+            temp = data[i];
+            for (j = i; j > 0 && temp < data[j - 1]; j--) {
+                data[j] = data[j - 1];
+            }
+            data[j] = temp;
+        }
+    }
+
+    /**
+     * 二分法插入排序
+     */
+
+    public static void halfInsert(int data){
+        
     }
 }
