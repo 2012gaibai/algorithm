@@ -11,7 +11,8 @@ public class SortMethod {
         int[] a = {3, 7, 4, 2, 2, 3, 1};
 //        bubbleSort(a);
 //        quickSort(a, 0, a.length - 1);
-        insertSort(a);
+//        insertSort(a);
+        halfInsert(a);
         Util.printIntArr(a);
     }
 
@@ -95,7 +96,33 @@ public class SortMethod {
      * 二分法插入排序
      */
 
-    public static void halfInsert(int data){
-        
+    public static void halfInsert(int[] data) {
+        int len = data.length;
+
+        int temp;
+
+        for (int i = 1; i < len; i++) {
+            int left = 0;
+            int right = i - 1;
+            temp = data[i];
+            int midd;
+            while (left <= right) {
+                midd = (left + right) / 2;
+                if(temp<data[midd]){
+                    right=midd-1;
+                }else {
+                    left=midd+1;
+                }
+
+            }
+            for (int j = i - 1; j >= left; j--) {
+                data[j + 1] = data[j];
+            }
+
+            if (i != left) {
+                data[left] = temp;
+            }
+
+        }
     }
 }
