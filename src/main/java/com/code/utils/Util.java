@@ -17,4 +17,10 @@ public class Util {
         System.out.println(sb.toString());
     }
 
+    public static void printIntArr(int[] data){
+        for(int i:data){
+            System.out.print(i+",");
+        }
+    }
+
 }
