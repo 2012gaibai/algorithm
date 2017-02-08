@@ -8,8 +8,9 @@ import com.code.utils.Util;
 public class SortMethod {
 
     public static void main(String[] args) {
-        int[] a={3,7,4,2,1};
-        bubbleSort(a);
+        int[] a = {3, 7, 4, 2, 2, 3, 1};
+//        bubbleSort(a);
+        quickSort(a, 0, a.length - 1);
         Util.printIntArr(a);
     }
 
@@ -39,6 +40,36 @@ public class SortMethod {
             }
 
         }
+
+    }
+
+    /**
+     * 快速排序：
+     */
+
+    public static void quickSort(int[] data, int left, int right) {
+        if (left < right) {
+            int middle = getMiddle(data, left, right);
+            quickSort(data, left, middle - 1);
+            quickSort(data, middle + 1, right);
+        }
+
+    }
+
+    private static int getMiddle(int[] data, int left, int right) {
+        int key = data[left];
+        while (left < right) {
+            while (left < right && data[right] >= key) {
+                right--;
+            }
+            data[left] = data[right];
+            while (left < right && data[left] < key) {
+                left++;
+            }
+            data[right] = data[left];
+        }
+        data[left] = key;
+        return left;
 
     }
 }
