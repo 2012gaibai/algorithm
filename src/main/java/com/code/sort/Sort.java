@@ -65,8 +65,7 @@ public class Sort {
      */
     public void selectSort(Integer s[], int len) {
         for (int i = 0; i < len; i++) {
-            int index = i;
-            index = selectMinKey(s, i, len);
+            int index = selectMinKey(s, i, len);
             if (index != i) {
                 int temp = s[index];
                 s[index] = s[i];
